@@ -1,8 +1,12 @@
 {
-  "functions": {
-    "api/**/*": {
-      "runtime": "python3.8",
-      "memory": 512
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/*/.py",
+      "use": "@vercel/python@0.10.0"
     }
-  }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "api/$1.py" }
+  ]
 }
